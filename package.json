@@ -1,0 +1,54 @@
+{
+  "name": "@local/side-chat",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Open a selection as an independent side conversation in the right sidebar.",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "LICENSE",
+    "tools/*.mjs"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-sidebar-right",
+        "@deepseek-ai/dsh-client-ui-subagent",
+        "@deepseek-ai/dsh-client-resources"
+      ]
+    }
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "side-chat",
+    "codex-side",
+    "conversation"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BlakrPander/dsh-side-chat.git"
+  },
+  "homepage": "https://github.com/BlakrPander/dsh-side-chat#readme",
+  "bugs": {
+    "url": "https://github.com/BlakrPander/dsh-side-chat/issues"
+  }
+}

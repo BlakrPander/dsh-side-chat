@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Side chat",
+    "description": "Selects text and opens a side conversation for it in the right sidebar, leaving the main thread untouched."
+  }
+}
