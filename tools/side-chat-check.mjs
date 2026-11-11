@@ -27,7 +27,7 @@ globalThis.localStorage = {
 new Function('window', 'document', fs.readFileSync(SRC, 'utf8'))(globalThis.window, undefined);
 
 assert.equal(typeof factory, 'function', 'module registered a factory');
-assert.equal(calls[0][1], '@local/side-chat', 'module id equals the package name');
+assert.equal(calls[0][1], 'dsh-side-chat', 'module id equals the package name');
 
 // --- minimal React stand-in -------------------------------------------------
 const rendered = [];
@@ -168,7 +168,7 @@ assert.equal(surface[1].locale, 'sideChat');
 assert.equal(surface[1].priority, -100, 'shadows the shipped pill at a lower priority');
 
 assert.equal(tabTypes.length, 1, 'registers one tab type');
-assert.equal(tabTypes[0].id, '@local/side-chat');
+assert.equal(tabTypes[0].id, 'dsh-side-chat');
 assert.equal(tabTypes[0].kind, 'sidechat');
 assert.equal(tabTypes[0].priority, 'extension');
 assert.equal(tabTypes[0].title('dsh-resource://sidechat/session/x'), 't(tab.title)');
@@ -181,7 +181,7 @@ assert.equal(resourceProviders[0].protocol, 'sidechat');
 
 const body = slotRegistrations.find(([, options]) => options.name === 'sidebar.right.pane.tab');
 assert.ok(body, 'registers the tab body');
-assert.equal(body[1].key, '@local/side-chat');
+assert.equal(body[1].key, 'dsh-side-chat');
 assert.deepEqual(body[1].children, { 'sidechat.seat': { kind: 'single', scope: 'session' } },
   'declares its own session seat without redeclaring the shipped chat seat');
 

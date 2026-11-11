@@ -1,6 +1,6 @@
 {
-  "name": "@local/side-chat",
-  "version": "1.0.0",
+  "name": "dsh-side-chat",
+  "version": "1.0.1",
   "private": true,
   "type": "module",
   "description": "Open a selection as an independent side conversation in the right sidebar.",

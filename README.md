@@ -141,7 +141,7 @@ client.js  SelectionActions ──POST /api/side-chat/open──► index.js
 |---|---|---|
 | `ctx.slots.register('conversation.chat.text-interaction', key: 'quote')` | 选区浮层（两个胶囊） | `client.js` · `SelectionActions` |
 | `ctx.uiConversation.interactions` | 借用 Quote 的选区准入（不重复注册，避免抢浮层） | 同上 |
-| `ctx.slots.register('sidebar.right.pane.tab', key: '@local/side-chat')` | 右侧栏页签体 | `client.js` · `SideChatTab` |
+| `ctx.slots.register('sidebar.right.pane.tab', key: 'dsh-side-chat')` | 右侧栏页签体 | `client.js` · `SideChatTab` |
 | `ctx.sidebarRightTabs.register` | 页签类型 `sidechat` + 地址 glob | `client.js` · `apply` |
 | `ctx.resources.register({ protocol: 'sidechat' })` | 地址 → 保留会话引用 | `client.js` · `provider` |
 | `ctx.sidebarRight.openResource` | 打开/聚焦页签 | `client.js` · `openSideChat` |
@@ -214,8 +214,8 @@ dsh plugin --profile desktop add link:/path/to/side-chat
 启用 / 停用 / 移除：
 
 ```
-plugin_manager: set_bundle   target=@local/side-chat enabled=false   # 停用
-plugin_manager: remove_bundle target=@local/side-chat                # 移除
+plugin_manager: set_bundle   target=dsh-side-chat enabled=false   # 停用
+plugin_manager: remove_bundle target=dsh-side-chat                # 移除
 ```
 
 安装为一个 **link** 目录时，改完 `client.js` 刷新页面即可；改完 `index.js` 由 Host HMR 监听 link 目标自动替换。
@@ -271,7 +271,7 @@ CORDIS_PATH=/path/to/node_modules/@deepseek-ai/cordis/lib/index.js \
 | v2 | Host 造 `origin:'subagent'` 会话（隐藏） | 侧栏能开、界面空白，但输入框只读、附件被拒、消息发不出 | 平台的“隐藏”绑死了“委派”：`SUBAGENT_FILE_UNSUPPORTED`、`session/agent-busy` |
 | v3 | 普通空白会话 + 会话引用承载上下文 | 可用，落在“未归组” | 可用优先；隐藏留给平台解决 |
 
-其中 v1 的两个槽位错误是靠读 `SlotCore.register()` 的校验代码定位的 —— 报错只有 `@local/side-chat: failed` 一行，`web boot` 审计不打印原因，插件的 `report()` 会把真实栈写进渲染器控制台，桌面端崩溃日志才收得到。
+其中 v1 的两个槽位错误是靠读 `SlotCore.register()` 的校验代码定位的 —— 报错只有 `dsh-side-chat: failed` 一行，`web boot` 审计不打印原因，插件的 `report()` 会把真实栈写进渲染器控制台，桌面端崩溃日志才收得到。
 
 ---
 

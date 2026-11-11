@@ -1,5 +1,5 @@
 window.__ModuleLoader__.load({
-  id: '@local/side-chat',
+  id: 'dsh-side-chat',
   factory(require) {
     const React = require('react');
     const h = React.createElement;
@@ -12,7 +12,7 @@ window.__ModuleLoader__.load({
     /** Right-Sidebar tab kind carrying a side conversation. */
     const KIND = 'sidechat';
     /** Tab-type identity, unique across every registration in the column. */
-    const TAB_TYPE_ID = '@local/side-chat';
+    const TAB_TYPE_ID = 'dsh-side-chat';
     /** Cell key this plugin occupies in the surface the Quote interaction opens. */
     const SURFACE_KEY = 'quote';
     /** Priority that shadows the shipped Quote pill; a keyed slot renders the lowest. */
